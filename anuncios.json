@@ -1,0 +1,60 @@
+{
+    "anuncios": [
+        {
+            "nombre": "Gafas de sol",
+            "venta": true,
+            "precio": 35,
+            "foto": "images/anuncios/gafas_sol.jpg",
+            "tags": [ "lifestyle" ]
+        },
+        {
+            "nombre": "iPhone 5s",
+            "venta": true,
+            "precio": 250,
+            "foto": "images/anuncios/iphone5s.jpg",
+            "tags": [ "mobile", "lifestyle" ]
+        },
+        {
+            "nombre": "Bicicleta de montaña",
+            "venta": true,
+            "precio": 150,
+            "foto": "images/anuncios/bici_profesional.jpg",
+            "tags": [ "lifestyle", "motor" ]
+        },
+        {
+            "nombre": "Bicicleta de paseo",
+            "venta": false,
+            "precio": 100,
+            "foto": "images/anuncios/bici_paseo.jpg",
+            "tags": [ "lifestyle", "motor" ]
+        },
+        {
+            "nombre": "Cascos para móvil",
+            "venta": false,
+            "precio": 35,
+            "foto": "images/anuncios/cascos.jpg",
+            "tags": [ "lifestyle", "mobile" ]
+        },
+        {
+            "nombre": "Mac laptop",
+            "venta": true,
+            "precio": 650,
+            "foto": "images/anuncios/mac.jpg",
+            "tags": [ "work", "lifestyle" ]
+        },
+        {
+            "nombre": "Aplicación para venta de comida",
+            "venta": false,
+            "precio": 2500,
+            "foto": "images/anuncios/app.jpg",
+            "tags": [ "work" ]
+        },
+        {
+            "nombre": "Vestido de fiesta",
+            "venta": true,
+            "precio": 75,
+            "foto": "images/anuncios/dress.jpg",
+            "tags": [ "lifestyle" ]
+        }
+    ]
+}
