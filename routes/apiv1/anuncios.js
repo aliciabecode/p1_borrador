@@ -55,9 +55,6 @@ router.get('/', (req, res, next) => {
         }
     };
 
-    if (min_price >= 0) query.where('price').gte(min_price);
-    if (max_price >= 0) query.where('price').lte(max_price);
-
     // Búsqueda por nombre del artículo (que empiece por el dato buscado)
     if (nombre) {
         filter.nombre = nombre;
