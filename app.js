@@ -3,8 +3,19 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var i18n = require('i18n');
 
 var app = express();
+
+// configuración del módulo multilenguaje i18n 
+i18n.configure({
+  locales:['es', 'en'],
+  defaultLocale: 'es',
+  directory: __dirname + '/locales'
+});
+
+// Por defecto se usa el 'accept-language' header para especifical el setting del lenguaje 
+app.use(i18n.init);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

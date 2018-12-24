@@ -20,12 +20,15 @@ router.get('/', (req, res, next) => {
     // Datos de entrada
     const tags = req.query.tags;
     const venta = req.query.venta;
-    const precio = req.query.precio;
     const nombre = req.query.nombre;
     const limit = parseInt(req.query.limit);
     const skip = parseInt(req.query.skip);
+    const precioMaximo = parseInt(req.query.precioMaximo);
+    const precioMinimo = parseInt(req.query.precioMinimo);
+    const precio = {$gte: precioMinimo, $lte: precioMaximo};
     const fields = req.query.fields;
     const sort = req.query.sort;
+    
 
     const filter = {};
 
@@ -39,10 +42,21 @@ router.get('/', (req, res, next) => {
         filter.venta = venta;
     }
 
-    // Búsqueda por precio
-    if (precio) {
-        filter.precio = precio;
-    }
+    //Búsqueda por rango de precio
+    if (precioMaximo >= 0) {
+        if (precioMinimo >= 0) {
+        filter.precio = precio;  
+        } else {
+        filter.precio = {$gte:0, $lte: precioMaximo};
+        };
+    } else {
+        if (precioMinimo >= 0) {
+        filter.precio = {$gte: precioMinimo};  
+        }
+    };
+
+    if (min_price >= 0) query.where('price').gte(min_price);
+    if (max_price >= 0) query.where('price').lte(max_price);
 
     // Búsqueda por nombre del artículo (que empiece por el dato buscado)
     if (nombre) {
