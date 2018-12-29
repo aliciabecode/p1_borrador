@@ -14,13 +14,13 @@ router.post('/login', async (req, res, next) => {
     
     try {
 
-        const nombre = req.body.nombre;
         const email = req.body.email;
         const clave = req.body.clave;
 
         // buscamos el usuario
         const usuario = await Usuario.findOne({ email: email }).exec();
    
+        // en caso de no encontrar el usuario damos error
         if (!usuario) {
             res.json({ success: false, error: 'Credenciales inválidas'});
             return;
