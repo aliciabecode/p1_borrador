@@ -25,7 +25,7 @@ router.get('/', (req, res, next) => {
     const skip = parseInt(req.query.skip);
     const precioMaximo = parseInt(req.query.precioMaximo);
     const precioMinimo = parseInt(req.query.precioMinimo);
-    const precio = {$gte: precioMinimo, $lte: precioMaximo};
+    const precio = { $gte: precioMinimo, $lte: precioMaximo };
     const fields = req.query.fields;
     const sort = req.query.sort;
     
@@ -45,19 +45,13 @@ router.get('/', (req, res, next) => {
     //Búsqueda por rango de precio
     if (precioMaximo >= 0) {
         if (precioMinimo >= 0) {
-        filter.precio = precio;  
-        } else {
-        filter.precio = {$gte:0, $lte: precioMaximo};
+        filter.precio = { $gt: precioMinimo, $lt: precioMaximo };
         };
-    } else {
-        if (precioMinimo >= 0) {
-        filter.precio = {$gte: precioMinimo};  
-        }
     };
 
     // Búsqueda por nombre del artículo (que empiece por el dato buscado)
     if (nombre) {
-        filter.nombre = nombre;
+        filter.nombre = new RegExp('^' + nombre, "i");
     }
 
     // Lista de todos los anuncios
